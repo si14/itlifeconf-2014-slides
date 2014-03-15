@@ -178,6 +178,7 @@ Foo.Bar = (function() {...
                   <h3>Стоя на плечах гигантов</h3>
                   <ul>
                     <li>JVM «под рукой»
+                    <li>JRuby, Nashorn
                     <li>lein (Maven!)
                     <li>Google Closure
                     <li>JS interop (+source maps)
@@ -385,7 +386,7 @@ for (var gd = G(Yc.a(1, 101)), hd = null, id = 0, jd = 0;;) {
 
                 <section>
                   <h3>Macro power²: <a href="https://github.com/ckirkendall/enfocus">enfocus</a></h3>
-                  <p>Compile-time инлайнинг шаблонов:</p>
+                  <p>Compile-time компиляция шаблонов:</p>
                   <pre><code data-trim class="clojure">
 (em/deftemplate template :compiled "/templates/template1.html" [some-data]
     ["#heading1"] (ef/content "fruit")
@@ -403,7 +404,7 @@ for (var gd = G(Yc.a(1, 101)), hd = null, id = 0, jd = 0;;) {
   (let [b-int (Integer/parseInt b)]
     (+ a b)))
                   </code></pre>
-                  <p>Опциональная runtime проверка типов! CLJS-порт в работе</p>
+                  <p>Опциональная runtime проверка типов! CLJS-порт в разработке</p>
                 </section>
 
                 <section>
