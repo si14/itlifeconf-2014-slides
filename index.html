@@ -252,6 +252,22 @@ Foo.Bar = (function() {...
                 </section>
 
                 <section>
+                  <h3>Больше сахара</h3>
+                  <pre><code data-trim class="clojure large">
+(def pony {:name "Rainbow Dash"
+           :additional {:color "rainbow"
+                        :friends ...}})
+
+(pony :name) ; =&gt; "Rainbow Dash"
+(:name pony) ; =&gt; "Rainbow Dash"
+
+(map :name ponies) ; =&gt; (Name1 Name2 ...)
+
+(get-in pony [:additional :friends]) ; =&gt; ...
+				  </code></pre>
+                </section>
+
+                <section>
                   <h3>Циклы, рекурсия</h3>
                   <pre><code data-trim class="clojure large">
 (map inc (for [q elements
