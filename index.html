@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+        <link rel="stylesheet" href="plugin/highlight/styles/idea.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+        <style type="text/css">
+          @import url(http://fonts.googleapis.com/css?family=Ubuntu);
+          .reveal { font-family: "Ubuntu", sans-serif; }
+          .reveal .slide-number { font-size: 24px; }
+          .reveal h1,
+          .reveal h2,
+          .reveal h3,
+          .reveal h4,
+          .reveal h5,
+          .reveal h6 {
+              font-family: "Ubuntu", sans-serif;
+              letter-spacing: 0em;
+          }
+          .reveal pre code {
+              font-weight: normal !important;
+          }
+          .hljs-title {
+              font-weight: normal !important;
+          }
+          .reveal pre code.large {
+              font-size: 1.5em;
+              line-height: 1.25em;
+          }
+        </style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CLJS</h1>
+					<h3>client-side from the outer space</h3>
+					<p>
+						<small>Dmitry Groshev <a href="http://twitter.com/lambdadmitry">@lambdadmitry</a></small>
+					</p>
+				</section>
+
+                <section>
+                  <h3>CLJS — наиболее зрелая альтернатива JS</h3>
+                </section>
+
+                <section>
+                  <h2>План</h2>
+                  <ul>
+                    <li>почему ClojureScript
+                    <li>немного о CLJ/CLJS
+                    <li>библиотеки
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Почему ClojureScript</h2>
+                </section>
+
+                <section>
+                  <h3>Главная претензия</h3>
+                </section>
+
+                <section>
+                  <h3>Скобочки!!!</h3>
+                  <p>JS:</p>
+                  <pre><code data-trim class="javascript large">
+Foo.Bar = (function() {...
+   baz = _.map(..., function(){ ... });
+})(...);
+				  </code></pre>
+                  <p>CLJS:</p>
+                  <pre><code data-trim class="clojure large">
+(map #(...) ...)
+				  </code></pre>
+                </section>
+
+                <section>
+                  <h3>Скобочки!!!</h3>
+                  <p>Структурное редактирование</p>
+                  <img src="gifs/moveparenright.gif">
+                  <img src="gifs/moveparen.gif">
+                  <p><small>rainbow delimeters!</small></p>
+                </section>
+
+                <section>
+                  <h3>Скобочки!!!</h3>
+                  <p>Структурное выделение</p>
+                  <img src="gifs/selectmore.gif">
+                </section>
+
+                <section>
+                  <h3>Скобочки!!!</h3>
+                  <p>Структурное удаление</p>
+                  <img src="gifs/dropdown.gif">
+                  <img src="gifs/dropupbegin.gif">
+                  <img src="gifs/dropupmid.gif">
+                </section>
+
+                <section>
+                  <h3>Скобочки!!!</h3>
+                  <p>LISP как JAVA: многократно приятнее с правильным редактором</p>
+                  <p><small>скобочки вызывают зависимость</small></p>
+                </section>
+
+                <section>
+                  <h3>Not your mom's Coffee</h3>
+                  <ul>
+                    <li>не просто сахар, свои абстракции
+                    <li>большая стандартная библиотека
+                    <li>объектная система и неймспейсы
+                    <li>иммутабельные структуры
+                    <li>ленивые последовательности
+                    <li>оптимизирующий компилятор
+                    <li>jQuery: 33k; CLJS hello world: 18k
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>Реальные проекты</h3>
+                  <p><small>not your mom's Elm</small></p>
+                  <ul>
+                    <li>Prismatic
+                    <li>Weathertron
+                    <li>гора молодых компаний (CodeNotes!)
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>Prismatic</h3>
+                  <img src="prismatic.png">
+                </section>
+
+                <section>
+                  <h3>Weathertron</h3>
+                  <video data-autoplay loop controls="controls">
+                    <source src="weathertron.mp4" type="video/webm"  />
+                  </video>
+                </section>
+
+                <section>
+                  <h3>Стоя на плечах гигантов</h3>
+                  <ul>
+                    <li>JVM «под рукой»
+                    <li>lein (Maven!)
+                    <li>Google Closure
+                    <li>JS interop (+source maps)
+                    <li>фундамент (immutability, etc.)
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Немного о CLJ/CLJS</h2>
+                </section>
+
+                <section>
+                  <h3>История</h3>
+                  <ul>
+                    <li>давным-давно: LISP
+                    <li>Java и JVM
+                    <li>Rich Hickey и Clojure
+                    <li>JVM, CLR, py, …
+                    <li>ClojureScript
+                  </ul>
+                  <p>CLJS гарантирован рост из-за CLJ</p>
+                </section>
+
+                <section>
+                  <h3>Clojure</h3>
+                  <ul>
+                    <li>динамический
+                    <li>компилируемый в рантайме
+                    <li>есть eval
+                    <li>объёмная реализация
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>ClojureScript</h3>
+                  <ul>
+                    <li>динамический
+                    <li>компилируемый не в рантайме
+                    <li>нет eval
+                    <li>относительно простая реализация
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>Макросы в CLJS</h3>
+                  <ul>
+                    <li>выполняются при компиляции
+                    <li>пишутся на CLJ(!)
+                    <li>имеют доступ к JVM
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>Немного кода</h3>
+                  <pre><code data-trim class="clojure large">
+(+ 1 2)
+				  </code></pre>
+                </section>
+
+                <section>
+                  <h3>Типы, сахар</h3>
+                  <pre><code data-trim class="clojure large">
+:foo
+(list 1 2 3)
+[1 2 3]
+{:a 1, :b 2}
+#{1 2 3}
+#js [1 2 3]
+#js {:a 1 :b 2}
+				  </code></pre>
+                  <p>~1-3x immutability overhead</p>
+                </section>
+
+                <section>
+                  <h3>Циклы, рекурсия</h3>
+                  <pre><code data-trim class="clojure large">
+(map inc (for [q elements
+               p other-elements]
+           (+ q p)))
+
+(loop [x 1]
+  (when (&lt; x 10)
+    (prn x)
+    (recur (inc x))))
+				  </code></pre>
+                </section>
+
+                <section>
+                  <h3>FizzBuzz</h3>
+                  <pre><code data-trim class="clojure large">
+(defn fizzbuzz [x]
+  (cond (zero? (mod x 15)) "FizzBuzz"
+        (zero? (mod x 5)) "Buzz"
+        (zero? (mod x 3)) "Fizz"
+        :else x))
+
+(doseq [x (range 1 101)]
+  (prn (fizzbuzz x)))
+				  </code></pre>
+                  <p>Прелестно!</p>
+                </section>
+
+                <section>
+                  <h3>FizzBuzz, compiled</h3>
+                  <pre><code data-trim class="javascript">
+function fd(a) {
+    return (0 === (a % 15 + 15) % 15 ? "FizzBuzz" :
+            0 === (a % 5 + 5) % 5 ? "Buzz" :
+            0 === (a % 3 + 3) % 3 ? "Fizz" : t ? a : null);
+}
+
+for (var gd = G(Yc.a(1, 101)), hd = null, id = 0, jd = 0;;) {
+  if (jd &lt; id) {
+    var kd = hd.G(null, jd);
+    ed.j(N([fd(kd)], 0));
+    jd += 1;
+  } else {
+    ...
+  }
+};
+				  </code></pre>
+                </section>
+
+                <section>
+                  <h3>Ещё о скорости</h3>
+                  <a href="http://swannodette.github.io/2013/06/10/porting-notchs-minecraft-demo-to-clojurescript/">
+                  <img src="chambered.png">
+                  <p>"Chambered" by David Nolen</p></a>
+                  <p>~250LOC CLJS, 200–400LOC JS</p>
+                </section>
+
+                <section>
+                  <h3>Типы, протоколы, oh my!</h3>
+                  <pre><code data-trim class="clojure">
+(defrecord Puppies [...])
+(defrecord Ukraine [...])
+
+(defprotocol Likeable
+  (like [thing])
+  (hug [thing times]))
+
+(extend-type Puppies
+  Likeable
+  (like [this] ...)
+  (hug [this times] ...))
+
+(extend-protocol Likeable
+  Ukraine
+  (like [this] ...)
+  (hug [this times] ...))
+				  </code></pre>
+                  <p>Look ma, in my browser!</p>
+                </section>
+
+                <section>
+                  <h2>Библиотеки</h2>
+                </section>
+
+                <section>
+                  <h3>Очевидное: stdlib</h3>
+                  <ul>
+                    <li>десятки функция для Seq
+                    <li>сеты/словари/строки/etc.
+                    <li>моё любимое:
+                  </ul>
+                  <pre><code data-trim class="clojure large">
+(-&gt;&gt; (fetch "some_url")
+     (filter valid?)
+     (map #(assoc % :received (current-time)))
+     (into #{}))
+				  </code></pre>
+                </section>
+
+                <section>
+                  <h3>Macro power: <a href="https://github.com/prismatic/dommy">dommy</a></h3>
+                  <ul>
+                    <li>Prismatic
+                    <li>~jQuery: селекторы и работа с DOM
+                    <li>шаблоны с частичной компиляцией (2x jQuery)
+                    <li>магия макросов:
+                  </ul>
+                  <pre><code data-trim class="clojure">
+(sel1 :body) ; =&gt; document.body (15x jQuery)
+(sel1 :#my-id) ; =&gt; document.getElementById("my-id") (7x jQuery)
+(sel ".c1, .c2") ; =&gt; «обычный» диспатч (~jQuery)
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h3>Macro power²: <a href="https://github.com/ckirkendall/enfocus">enfocus</a></h3>
+                  <p>Compile-time инлайнинг шаблонов:</p>
+                  <pre><code data-trim class="clojure">
+(em/deftemplate template :compiled "/templates/template1.html" [some-data]
+    ["#heading1"] (ef/content "fruit")
+    ["thead tr &gt; *:last-child"] (ef/content "quantity")
+    ["tbody"] (ef/content (some-function some-data)))
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h3><a href="https://github.com/clojure/core.typed">core.typed</a>: <br>SO I HEARD U LIKE TYPES</h3>
+                  <p>Clojure:</p>
+                  <pre><code data-trim class="clojure large">
+(ann my-weird-plus [Number -&gt; String -&gt; Number])
+(defn my-weird-plus [a b]
+  (let [b-int (Integer/parseInt b)]
+    (+ a b)))
+                  </code></pre>
+                  <p>Опциональная runtime проверка типов! CLJS-порт в работе</p>
+                </section>
+
+                <section>
+                  <h3><a href="https://github.com/clojure/core.match">core.match</a>: если = мало</h3>
+                  <p>Снова FizzBuzz:</p>
+                  <pre><code data-trim class="clojure large">
+(doseq [n (range 1 101)]
+  (println
+    (match [(mod n 3) (mod n 5)]
+      [0 0] "FizzBuzz"
+      [0 _] "Fizz"
+      [_ 0] "Buzz"
+      :else n)))
+                  </code></pre>
+                  <p>Компилируется в эффективный код</p>
+                </section>
+
+                <section>
+                  <h3>просто <a href="https://github.com/clojure/core.async">core.async</a></h3>
+                  <pre><code data-trim class="clojure large">
+{:on-message (fn [msg]
+               (go (&gt;! first-chan
+                       (decode msg))))}
+...
+
+(go
+  (&gt;! final-chan
+      (+ (&lt;! first-chan)
+         (&lt;! second-chan))))
+                  </code></pre>
+                  <ul>
+                    <li>каналы
+                    <li>асинхронность
+                    <li>абстракция «зелёного» треда
+                    <li>количество коллбеков: 1
+                  </ul>
+                </section>
+
+                <section>
+                  <h3><a href="https://github.com/swannodette/om">Om</a>: вишенка на торте</h3>
+                  <ul>
+                    <li>обёртка над React
+                    <li>протоколы: лёгкое расширение
+                    <li>core.async: общение между компонентами, границы
+                    <li>иммутабельность: эффективный ререндеринг
+                    <li>requestAnimationFrame и батчинг
+                    <li>2-4x Backbone на todoMVC
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>Backbone flamegraph</h3>
+                  <a href="http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs/"><img src="perf_bb.jpg"></a>
+                </section>
+
+                <section>
+                  <h3>Om flamegraph</h3>
+                  <img src="perf_om.jpg">
+                  <p>Quiz: что проще оптимизировать?</p>
+                </section>
+
+                <section>
+                  <h2>Заключение</h2>
+                </section>
+
+                <section>
+                  <h3>ClojureScript:</h3>
+                  <ul>
+                    <li>легко и приятно писать
+                    <li>зрелая экосистема
+                    <li>гарантированное будущее
+                    <li>уникальные фичи и библиотеки
+                    <li>сочетание мощности и скорости
+                    <li>активное сообщество
+                  </ul>
+                </section>
+
+                <section>
+                  <h3>ClojureScript — наиболее зрелая альтернатива JS</h3>
+                </section>
+
+                <section>
+                  <h2>Используйте ClojureScript</h2>
+                  <img src="hypnotoad.gif">
+                </section>
+
+				<section>
+					<h3>Спасибо за внимание!</h3>
+                    <p>Слайды: <a href="http://si14.github.io/itlifeconf-2014-slides">si14.github.io/itlifeconf-2014-slides</a></p>
+                    <p>Твиттер: <a href="https://twitter.com/lambdadmitry">@lambdadmitry</a></p>
+                    <p>Почта: <a href="mailto:lambdadmitry@gmail.com">lambdadmitry@gmail.com</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+                slideNumber: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
